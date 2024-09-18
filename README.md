@@ -1,5 +1,7 @@
 # J40-Tray
 
+![screenshoot of j40-tray](./src/assets/j40-tray-snapshot.png)
+
 ## Description
 **J40 Food Tray** is a web application designed to streamline food ordering at restaurants. It allows guests to view the menu, check available food items, and place orders directly from their devices.
 
