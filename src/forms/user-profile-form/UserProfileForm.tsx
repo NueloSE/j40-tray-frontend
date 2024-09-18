@@ -3,11 +3,11 @@
 import LoadingButton from '@/components/LoadingButton';
 import { Button } from '@/components/ui/button';
 import {
-	Form,
-	FormControl,
-	FormDescription,
-	FormField,
-	FormItem,
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
@@ -18,29 +18,33 @@ import { z } from 'zod';
 import { User } from '@/types';
 import { useEffect } from 'react';
 
+// Define schema for form validation using Zod
 const formSchema = z.object({
-	email: z.string().optional(),
-	name: z.string().min(1, 'Name is required'),
-	address: z.string().min(1, 'Address is required'),
-	phoneNumber: z.string().min(1, 'Phone number is required'),
+  email: z.string().optional(),
+  name: z.string().min(1, 'Name is required'),
+  address: z.string().min(1, 'Address is required'),
+  phoneNumber: z.string().min(1, 'Phone number is required'),
 });
 
+// Infer TypeScript type from the schema
 export type UserFormData = z.infer<typeof formSchema>;
 
 type Props = {
-	currentUser: User;
+  currentUser: User;
   onSave: (userProfileData: UserFormData) => void;
   isLoading: boolean;
 };
 
+// UserProfileForm component definition
 const UserProfileForm = ({ onSave, isLoading, currentUser }: Props) => {
   const form = useForm<UserFormData>({
     resolver: zodResolver(formSchema),
-	defaultValues: currentUser,
+    defaultValues: currentUser,
   });
 
   useEffect(() => {
-	form.reset(currentUser);
+    // Reset form fields whenever currentUser changes
+    form.reset(currentUser);
   }, [currentUser, form]);
 
   return (
@@ -76,7 +80,7 @@ const UserProfileForm = ({ onSave, isLoading, currentUser }: Props) => {
               <FormControl>
                 <Input {...field} className="bg-white" />
               </FormControl>
-              <FormMessage />
+              <FormMessage /> {/* Display validation messages */}
             </FormItem>
           )}
         />
@@ -91,7 +95,7 @@ const UserProfileForm = ({ onSave, isLoading, currentUser }: Props) => {
                 <FormControl>
                   <Input {...field} className="bg-white" />
                 </FormControl>
-                <FormMessage />
+                <FormMessage /> {/* Display validation messages */}
               </FormItem>
             )}
           />
@@ -105,12 +109,13 @@ const UserProfileForm = ({ onSave, isLoading, currentUser }: Props) => {
                 <FormControl>
                   <Input {...field} className="bg-white" />
                 </FormControl>
-                <FormMessage />
+                <FormMessage /> {/* Display validation messages */}
               </FormItem>
             )}
           />
         </div>
 
+        {/* Submit button or loading button based on isLoading state */}
         {isLoading ? (
           <LoadingButton />
         ) : (

@@ -8,6 +8,7 @@ import ProtectedRoute from './auth0/ProtectedRoute';
 const AppRoutes = () => {
   return (
     <Routes>
+      {/* Public route for the home page, wrapped with layout and hero section */}
       <Route
         path="/"
         element={
@@ -16,8 +17,11 @@ const AppRoutes = () => {
           </Layout>
         }
       />
+
+	  {/* Route for handling the Auth0 authentication callback */}
       <Route path="/auth-callback" element={<AuthCallbackPage />} />
-	  
+
+	  {/* Protected route, only accessible by authenticated users */}
       <Route element={<ProtectedRoute />}>
         <Route
           path="/user-profile"
@@ -28,6 +32,8 @@ const AppRoutes = () => {
           }
         />
       </Route>
+
+	  {/* Redirect any unknown routes to the home page */}
       <Route path="*" element={<Navigate to="/" />} />;
     </Routes>
   );
