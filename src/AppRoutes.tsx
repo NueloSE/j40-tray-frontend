@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage';
 import AuthCallbackPage from './pages/AuthCallbackPage';
 import UserProfilePage from './pages/UserProfilePage';
 import ProtectedRoute from './auth0/ProtectedRoute';
+import ManageRestaurantPage from './pages/ManageRestaurantPage';
 
 const AppRoutes = () => {
   return (
@@ -17,11 +18,9 @@ const AppRoutes = () => {
           </Layout>
         }
       />
-
-	  {/* Route for handling the Auth0 authentication callback */}
+      {/* Route for handling the Auth0 authentication callback */}
       <Route path="/auth-callback" element={<AuthCallbackPage />} />
-
-	  {/* Protected route, only accessible by authenticated users */}
+      {/* Protected route, only accessible by authenticated users */}
       <Route element={<ProtectedRoute />}>
         <Route
           path="/user-profile"
@@ -31,9 +30,16 @@ const AppRoutes = () => {
             </Layout>
           }
         />
+        <Route
+          path="/manage-restaurant"
+          element={
+            <Layout>
+              <ManageRestaurantPage />
+            </Layout>
+          }
+        />
       </Route>
-
-	  {/* Redirect any unknown routes to the home page */}
+      {/* Redirect any unknown routes to the home page */}
       <Route path="*" element={<Navigate to="/" />} />;
     </Routes>
   );

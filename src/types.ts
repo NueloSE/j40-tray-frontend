@@ -8,3 +8,23 @@ export type User = {
 	address: string;
 	phoneNumber: string;
 };
+
+export type MenuItem = {
+	_id: string;
+	name: string;
+	price: number;
+}
+
+export type Restaurant = {
+	_id: string;
+	user: string;
+	restaurantName: string;
+	city: string;
+	region: string;
+	deliveryPrice: number;
+	estimatedDeliveryTime: number;
+	cuisines: string[];
+	menuItems: MenuItem[];
+	imageUrl: string;
+	lastUpdate: string;
+}
