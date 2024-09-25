@@ -11,7 +11,10 @@ const HomePage = () => {
       {/* Header section with title and subtitle */}
       <div className="w-[80%] self-center bg-white rounded-lg shadow-md py-8 flex flex-col gap-5 text-center -mt-16 z-10">
         <h1 className="text-4xl font-bold tracking-tight text-yellow-950">WHY J40-TRAY</h1>
-        <span className="text-xl font-bold text-yellow-950">"J40-Tray brings a variety of cuisines and restaurants right to you on a platter. Experience the best flavors around—try J40-Tray today!"</span>
+        <span className="text-xl font-bold text-yellow-950">
+          "J40-Tray brings a variety of cuisines and restaurants right to you on a platter.
+          Experience the best flavors around—J40-Tray connecting people to Restaurants!"
+        </span>
       </div>
 
       {/* Grid section displaying different categories */}
