@@ -5,7 +5,7 @@ const Hero = () => {
     <div className='border-b-yellow-700 bg-yellow-500'>
 		<div className="container mx-auto flex flex-col max-h-[500px] overflow-x-hidden overflow-y-hidden md:flex-row justify-between items-center border-b-2 ">
 	      <h1 className=' text-yellow-950 text-center font-bold text-5xl px-5 mt-10 md:px-10'>
-	        Food Ordering One Click Away
+	        Connecting People to Restaurant
 	      </h1>
 	      <img
 	        src={foodBg}
